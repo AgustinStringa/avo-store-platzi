@@ -10,7 +10,10 @@
             ],
             "@pages/*": [
                 "pages/*"
-            ]
+            ],
+            "@styles/*": [
+                "pages/styles/*"
+            ],
         }
     }
 }

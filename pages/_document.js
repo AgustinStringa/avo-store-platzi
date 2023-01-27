@@ -7,6 +7,9 @@ export default function Document() {
         <Html>
             <Head>
                 <link rel='shortcut icon' href='avo.svg' type="image/x-icon" />
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={true} />
+                <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
             </Head>
             <body>
                 <Main />
