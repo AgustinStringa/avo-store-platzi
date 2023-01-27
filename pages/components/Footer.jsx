@@ -5,8 +5,8 @@ const Footer = () => {
         <>
             <style jsx>{`
             .footer-box {
-                box-shadow: 0px 2px 4px rgb(0 0 0 / 5%);
-                border: 1px solid rgba(34,36,38,.15);
+                box-shadow: 0px -4px 4px rgb(0 0 0 / 5%);
+                /* border: 1px solid rgba(34,36,38,.15); */
             }
             .site-footer {
                 padding: 2rem 0;
