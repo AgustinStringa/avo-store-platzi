@@ -6,7 +6,7 @@ const Header = () => {
       <style jsx>{`
       .header-box {
         box-shadow: 0px 2px 4px rgb(0 0 0 / 5%);
-        border: 1px solid rgba(34,36,38,.15);
+        /* border: 1px solid rgba(34,36,38,.15); */
       }
       .site-header nav ul{
         display: flex;
