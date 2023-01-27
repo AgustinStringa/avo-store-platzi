@@ -14,6 +14,12 @@
             "@styles/*": [
                 "pages/styles/*"
             ],
+            "@context/*": [
+                "pages/context/*"
+            ],
+            "@hooks/*": [
+                "pages/hooks/*"
+            ],
         }
     }
 }

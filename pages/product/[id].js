@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-
+import Image from 'next/image';
 const ProductItem = () => {
     const [productData, setProductData] = useState({});
     const [loading, setLoading] = useState(false);
@@ -29,7 +29,7 @@ const ProductItem = () => {
                     <h1 className='product-name'>{productData.name}</h1>
                     <p className='product-price'>{productData.price}</p>
                     <p className='product-sku'>{productData.sku}</p>
-                    <img src={productData.image} />
+                    <Image src={productData.image} width={333} height={333} />
 
                     <form>
                         <input type="number" min={0} defaultValue={0} />

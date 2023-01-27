@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Footer = () => {
@@ -82,41 +83,64 @@ const Footer = () => {
                         <ul>
                             <li>
                                 <h2>Nosotros</h2>
-                                <a href="">Conoce más</a>
+
+                                <Link href="" legacyBehavior>
+                                    <a>
+                                        Conoce más
+                                    </a>
+                                </Link>
                             </li>
                             <li>
                                 <h2>Servicios</h2>
-                                <a href="">Todos los productos</a>
+                                <Link legacyBehavior href="">
+                                    <a >Todos los productos</a>
+                                </Link>
                             </li>
                             <li>
                                 <h2>Hecho para</h2>
                                 <p>
-                                    <a href="">Curso de Nextjs de Platzi</a> dictado por <a href="">@jonalvarezz</a>
+                                    <Link legacyBehavior href="">
+                                        <a href="">Curso de Nextjs de Platzi  dictado por</a>
+                                    </Link>
+                                    <Link legacyBehavior href="">
+                                        <a href="">@jonalvarezz</a>
+                                    </Link>
                                 </p>
                                 <div>
-                                    <a href="">ico - Twitter</a>
-                                    <a href="">ico - Github</a>
+                                    <Link href="" legacyBehavior>
+                                        <a >ico - Twitter</a>
+
+                                    </Link>
+                                    <Link href="" legacyBehavior>
+                                        <a >ico - Github</a>
+
+                                    </Link>
                                 </div>
                             </li>
                         </ul>
                         <div>
                             <p className='credits'>
                                 Icons made by
-                                <a href="">
-                                    Freepik from www.flaticon.com
-                                </a>
+                                <Link href="" legacyBehavior>
+                                    <a href="">
+                                        Freepik from www.flaticon.com
+                                    </a>
+                                </Link>
                             </p>
                             <p className='credits'>
                                 Avocado images taken from
-                                <a href="">
-                                    Avocado 101
-                                </a>
+                                <Link legacyBehavior href="">
+                                    <a >
+                                        Avocado 101
+                                    </a>
+                                </Link>
                                 at
-                                <a href="">
-                                    California Avocado
-                                </a>
+                                <Link legacyBehavior href="">
+                                    <a href="">
+                                        California Avocado
+                                    </a>
+                                </Link>
                             </p>
-
                         </div>
                     </nav>
                 </footer>

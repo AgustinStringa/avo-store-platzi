@@ -1,11 +1,11 @@
-import data from 'database/data'
+import Link from 'next/link'
 import React from 'react'
-
+import Image from 'next/image'
 const ProductCard = ({ productData }) => {
-    console.log(productData)
     return (
-        <div className='product-card '>
-            <style jsx>{`
+        <Link href={`product/${productData.id}`} legacyBehavior>
+            <a className='product-card'>
+                <style jsx>{`
             .product-card {
                 border: 1px solid #c1c1c1;
                 border-radius: 1rem;
@@ -13,6 +13,7 @@ const ProductCard = ({ productData }) => {
                 text-align: left;
                 cursor: pointer;
                 transition: all .2s ease-in-out;
+                display: block;
             }
             .product-card:hover {
                 transform: translate(-4px, -4px);
@@ -30,11 +31,12 @@ const ProductCard = ({ productData }) => {
                 font-size: .875rem;
             }
         `}</style>
-            <img src={productData.image} alt="" />
-            <p className='product-name'>{productData.name}</p>
-            <p className='product-price'>{productData.price}</p>
-        </div>
-
+                <img alt="" />
+                <Image src={productData.image} width={333} height={333} />
+                <p className='product-name'>{productData.name}</p>
+                <p className='product-price'>{productData.price}</p>
+            </a>
+        </Link>
     )
 }
 
