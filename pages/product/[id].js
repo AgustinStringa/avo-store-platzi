@@ -12,7 +12,7 @@ const ProductItem = () => {
         setProductData(data);
         setLoading(false);
     }
-
+    console.log(productData);
     useEffect(() => {
         if (params.query.id) {
             getProductById(params.query.id);
@@ -20,16 +20,47 @@ const ProductItem = () => {
         }
     }, [params.query.id])
     return (
-        <div>
-            <h1>mostrando producto con id {params?.query?.id}</h1>
+        <section>
             {loading && <p>LOADING</p>}
             {Object.keys(productData).length > 0 && <>
-                <h2>{productData.name}</h2>
-                <p>{productData.price}</p>
-                <img src={productData.image} />
-                <p>{productData.attributes?.description}</p>
+
+                <div>
+
+                    <h1 className='product-name'>{productData.name}</h1>
+                    <p className='product-price'>{productData.price}</p>
+                    <p className='product-sku'>{productData.sku}</p>
+                    <img src={productData.image} />
+
+                    <form>
+                        <input type="number" min={0} defaultValue={0} />
+                        <button type="button">Add to cart</button>
+                    </form>
+                </div>
+                <div>
+                    <p>About this avocado</p>
+                    <p>{productData.attributes.description}</p>
+                    <hr />
+                    <table>
+                        <tr>
+                            <th>Attributes</th>
+                        </tr>
+                        <tr>
+                            <td>Shape</td>
+                            <td>{productData.attributes.shape}</td>
+                        </tr>
+                        <tr>
+                            <td>Hardiness</td>
+                            <td>{productData.attributes.hardiness}</td>
+                        </tr>
+                        <tr>
+                            <td>Taste</td>
+                            <td>{productData.attributes.taste}</td>
+                        </tr>
+                    </table>
+
+                </div>
             </>}
-        </div>
+        </section>
     )
 }
 
