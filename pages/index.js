@@ -15,8 +15,16 @@ export const Home = () => {
     useEffect(() => {
         getProducts();
     }, [])
+
+
     return (<>
-        <div>Home</div>
+        <style jsx>{`
+        .container {
+            background-color: hotpink;
+            padding: 48px;
+        }
+        `}</style>
+        <div className='container'>Home</div>
     </>
     )
 }
