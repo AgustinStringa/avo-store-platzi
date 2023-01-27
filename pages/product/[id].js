@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import Navbar from '../components/Navbar/Navbar';
+
 const ProductItem = () => {
     const [productData, setProductData] = useState({});
     const [loading, setLoading] = useState(false);
@@ -21,7 +21,6 @@ const ProductItem = () => {
     }, [params.query.id])
     return (
         <div>
-            <Navbar />
             <h1>mostrando producto con id {params?.query?.id}</h1>
             {loading && <p>LOADING</p>}
             {Object.keys(productData).length > 0 && <>

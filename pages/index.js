@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from './components/Navbar/Navbar';
+
 
 export const Home = () => {
     const [productList, setProductList] = useState([]);
@@ -16,7 +16,6 @@ export const Home = () => {
         getProducts();
     }, [])
     return (<>
-        <Navbar />
         <div>Home</div>
     </>
     )
