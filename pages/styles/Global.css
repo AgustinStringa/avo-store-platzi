@@ -1,3 +1,7 @@
+:root {
+  --color-link: #4183c4;
+}
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -81,8 +85,14 @@ html {
 }
 
 .container {
-  width: 800px;
+  width: 60%;
   margin: 0 auto;
+}
+
+@media (min-width: 990px) {
+  .container {
+    width: 800px;
+  }
 }
 
 a {
