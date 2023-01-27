@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import ProductList from '@containers/Layout/ProductList';
+import { AvoContext } from '@context/AvoContext';
+import Link from 'next/link';
 
 export const Home = () => {
-    const [productList, setProductList] = useState([]);
+
+    const { productList, setProductList } = useContext(AvoContext);
     const getProducts = async () => {
         try {
             const res = await fetch('api/avo/')
@@ -50,8 +53,11 @@ export const Home = () => {
                         </path>
                     </svg>
                     Avo</h1>
-
-                <a href='' className='question-link'>¿Deber&iacute;a comer un avo hoy?</a>
+                <Link href='' className='question-link' legacyBehavior>
+                    <a>
+                        ¿Deber&iacute;a comer un avo hoy?
+                    </a>
+                </Link>
 
                 <ProductList productList={productList} />
 
