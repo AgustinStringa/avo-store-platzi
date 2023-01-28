@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import React from 'react'
-
+import React, { useContext } from 'react'
+import { AvoContext } from '@pages/context/AvoContext'
 const Footer = () => {
     return (
         <>

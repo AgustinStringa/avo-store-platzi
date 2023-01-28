@@ -7,14 +7,15 @@ export default function MyApp({ Component, pageProps }) {
         cart,
         setProductList,
         setCart } = useAvoShop();
-    return <Layout>
-        <AvoContext.Provider value={{
-            productList,
-            cart,
-            setProductList,
-            setCart
-        }}>
+    return <AvoContext.Provider value={{
+        productList,
+        cart,
+        setProductList,
+        setCart
+    }}>
+        <Layout>
             <Component {...pageProps} />
-        </AvoContext.Provider>
-    </Layout>
+        </Layout>
+    </AvoContext.Provider>
+
 }
