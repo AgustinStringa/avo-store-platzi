@@ -7,6 +7,7 @@ const ProductItem = () => {
     const [productData, setProductData] = useState({});
     const [loading, setLoading] = useState(false);
     const params = useRouter();
+    const countProductRef = useRef(null);
     const getProductById = async (id) => {
         setLoading(true);
         const res = await fetch(`/api/avo/${id}`);
@@ -22,9 +23,13 @@ const ProductItem = () => {
     }, [params.query.id])
 
     const addToCart = () => {
+        const newElements = [];
+        for (let i = 0; i < countProductRef.current.value; i++) {
+            newElements.push(productData);
+        }
         setCart([
             ...cart,
-            productData
+            ...newElements
         ]);
     }
     return (
@@ -139,7 +144,7 @@ const ProductItem = () => {
                         <p className='product-price'>{productData.price}</p>
                         <p className='product-sku'>SKU: {productData.sku}</p>
                         <form className='form-cart'>
-                            <input type="number" min={0} defaultValue={0} />
+                            <input type="number" min={0} defaultValue={0} ref={countProductRef} />
                             <button type="button" className='addto-cart-button' onClick={addToCart}>Add to cart</button>
                         </form>
                     </div>
