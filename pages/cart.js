@@ -5,9 +5,18 @@ import CartItem from '@components/CartItem';
 import EmptyCart from '@components/EmptyCart';
 const cart = () => {
     const { cart, setCart } = useContext(AvoContext);
+
+    const calculateSubtotal = () => {
+        let price = 0;
+        cart.forEach(element => {
+            price += element.price;
+        });
+        return price;
+    }
     return (
         <>
             <style jsx>{`
+
             .subtotal {
                 padding: 1rem;
                 border-radius: .5rem;
@@ -37,13 +46,15 @@ const cart = () => {
             }
             
             `}</style>
-            {cart.length > 0 ?
-                cart.map((el) => <CartItem />)
-                :
-                <EmptyCart />}
+            <CartList>
+                {cart.length > 0 ?
+                    cart.map((el) => <CartItem itemInfo={el} />)
+                    :
+                    <EmptyCart />}
+            </CartList>
             <hr />
             <div className='subtotal'>
-                <p><span>Sub total:</span> {"cantidad"}</p>
+                <p><span>Sub total:</span> {calculateSubtotal()}</p>
                 <button>checkout</button>
             </div>
         </>
