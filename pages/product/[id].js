@@ -3,12 +3,13 @@ import { useRouter } from 'next/router'
 import Image from 'next/image';
 import { AvoContext } from '@context/AvoContext';
 import LoaderPage from '@components/LoaderPage';
-import { BsFillCartPlusFill } from 'react-icons/bs'
+import { BsFillCartPlusFill, BsCheckLg } from 'react-icons/bs'
 const ProductItem = () => {
     const { cart, setCart } = useContext(AvoContext);
     const [productData, setProductData] = useState({});
     const [adding, setAdding] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [showSuccessAdd, setShowSuccessAdd] = useState(false);
     const params = useRouter();
     const countProductRef = useRef(null);
     const getProductById = async (id) => {
@@ -44,6 +45,10 @@ const ProductItem = () => {
         });
         setTimeout(() => {
             setAdding(false);
+            setShowSuccessAdd(true);
+            setTimeout(() => {
+                setShowSuccessAdd(false);
+            }, 3000)
         }, 2000)
     }
     return (
@@ -129,7 +134,25 @@ const ProductItem = () => {
                     justify-content: center;
                     gap: 0.5rem;
                 }
+                .success-alert {
+                    display: flex;
+                    align-items: center;
+                    justify-content: start;
+                    margin: 1rem 0;
+                    color: #21ba45;
+                    gap: .5rem;
+                    transition: all .3s ease-in-out;
+                    animation: fadeOut 3s ease-in-out forwards;
+                }
+                @keyframes fadeOut {
+                    0% {
+                        opacity: 1;
+                    }
 
+                    100% {
+                        opacity: 0;
+                    }
+                }
                 /**SPINNER LOADER */
                 @keyframes spin {
                     0% {
@@ -198,6 +221,7 @@ const ProductItem = () => {
                                 {!adding ? <span> <BsFillCartPlusFill /> Add to cart</span> : <div className='spinner'></div>}
                             </button>
                         </form>
+                        {showSuccessAdd && <p className='success-alert'> <BsCheckLg /> <span>Added To Cart</span></p>}
                     </div>
 
                 </div>
