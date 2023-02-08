@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import ProductItem from "@pages/product/[id]";
+
 const CartItem = ({ itemInfo, setCart, cart }) => {
   const data = itemInfo[0];
   // if (!data) return null;
