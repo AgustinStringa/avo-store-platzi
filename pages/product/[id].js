@@ -5,6 +5,7 @@ import { AvoContext } from '@context/AvoContext';
 const ProductItem = () => {
     const { cart, setCart } = useContext(AvoContext);
     const [productData, setProductData] = useState({});
+    const [adding, setAdding] = useState(false);
     const [loading, setLoading] = useState(false);
     const params = useRouter();
     const countProductRef = useRef(null);
@@ -22,7 +23,9 @@ const ProductItem = () => {
         }
     }, [params.query.id])
 
+
     const addToCart = () => {
+        setAdding(true);
         const newElements = [];
         for (let i = 0; i < countProductRef.current.value; i++) {
             newElements.push(productData);
@@ -37,6 +40,9 @@ const ProductItem = () => {
             ...cart,
             [productData.id]: newContent,
         });
+        setTimeout(() => {
+            setAdding(false);
+        }, 2000)
     }
     return (
         <section className='pld'>
@@ -82,6 +88,7 @@ const ProductItem = () => {
                     display: flex;
                     justify-content: start;
                     width: auto;
+                    height: 50px;
                 }
                 .form-cart input {
                     padding: .5rem .5rem .5rem .8rem;
@@ -106,9 +113,35 @@ const ProductItem = () => {
                     border-top-right-radius: .5rem;
                     border-bottom-right-radius: .5rem;
                     font-weight: bold;
+                    width: 150px;
                 }
                 .addto-cart-button:hover {
                     background-color: #16ab39;
+                }
+                .addto-cart-button:disabled {
+                    background-color: #9be0ab;
+                }
+
+                /**SPINNER LOADER */
+                @keyframes spin {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+                .spinner {
+                    border: 4px solid rgba(0, 0, 0, .1);
+                    /* border-color: white; */
+                    border-left-color: transparent;
+                    border-left-color: white;
+                    width: 25px;
+                    height: 25px;
+                    animation: spin 1s linear infinite;
+                    border-radius: 50%;
+                    margin: 0 auto;
                 }
 
                 /**PRODUCT DESCRIPTION */
@@ -151,7 +184,11 @@ const ProductItem = () => {
                         <p className='product-sku'>SKU: {productData.sku}</p>
                         <form className='form-cart'>
                             <input type="number" min={0} defaultValue={0} ref={countProductRef} />
-                            <button type="button" className='addto-cart-button' onClick={addToCart}>Add to cart</button>
+                            <button type="button" className='addto-cart-button'
+                                disabled={adding}
+                                onClick={addToCart}>
+                                {!adding ? 'Add to cart' : <div className='spinner'></div>}
+                            </button>
                         </form>
                     </div>
 
