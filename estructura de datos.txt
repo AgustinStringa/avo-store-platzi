@@ -1,0 +1,2 @@
+cart:
+objeto donde cada key es el id de un tipo de avo y contiene un array con la cantidad de productos del mismo seleccionado.

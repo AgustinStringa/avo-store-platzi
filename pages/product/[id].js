@@ -27,10 +27,16 @@ const ProductItem = () => {
         for (let i = 0; i < countProductRef.current.value; i++) {
             newElements.push(productData);
         }
-        setCart([
+        let newContent = [];
+        if (cart[productData.id]) {
+            newContent = [...cart[productData.id], ...newElements]
+        } else {
+            newContent = [...newElements]
+        }
+        setCart({
             ...cart,
-            ...newElements
-        ]);
+            [productData.id]: newContent,
+        });
     }
     return (
         <section className='pld'>

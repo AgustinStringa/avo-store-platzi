@@ -8,10 +8,12 @@ const cart = () => {
 
     const calculateSubtotal = () => {
         let price = 0;
-        cart.forEach(element => {
-            price += element.price;
+        Object.entries(cart)?.forEach(element => {
+            element[1].forEach((product) => {
+                price += product.price;
+            })
         });
-        return price;
+        return price.toFixed(2);
     }
     return (
         <>
@@ -47,14 +49,14 @@ const cart = () => {
             
             `}</style>
             <CartList>
-                {cart.length > 0 ?
-                    cart.map((el) => <CartItem itemInfo={el} />)
+                {Object.keys(cart).length > 0 ?
+                    [Object.entries(cart).map((el) => <CartItem itemInfo={el[1]} />)]
                     :
                     <EmptyCart />}
             </CartList>
             <hr />
             <div className='subtotal'>
-                <p><span>Sub total:</span> {calculateSubtotal()}</p>
+                <p><span>Sub total: </span> ${calculateSubtotal()}</p>
                 <button>checkout</button>
             </div>
         </>
