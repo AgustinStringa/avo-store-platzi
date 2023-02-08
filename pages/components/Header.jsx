@@ -3,16 +3,9 @@ import Link from "next/link";
 import { AvoContext } from "@pages/context/AvoContext";
 import { useRouter } from "next/router";
 const Header = () => {
-  const { cart } = useContext(AvoContext);
+  const { cart, calculateCountItems } = useContext(AvoContext);
   const router = useRouter();
 
-  const calculateCountItems = () => {
-    let count = 0;
-    Object.entries(cart)?.forEach((element) => {
-      count += element[1].length;
-    });
-    return count;
-  };
   return (
     <>
       <style jsx>{`
