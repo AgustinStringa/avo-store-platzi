@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, useContext } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image';
 import { AvoContext } from '@context/AvoContext';
+import LoaderPage from '@components/LoaderPage';
 const ProductItem = () => {
     const { cart, setCart } = useContext(AvoContext);
     const [productData, setProductData] = useState({});
@@ -174,7 +175,7 @@ const ProductItem = () => {
                     border: 1px solid rgba(34,36,38,.15);
                 }
             `}</style>
-            {loading && <p>LOADING</p>}
+            {loading && <LoaderPage />}
             {Object.keys(productData).length > 0 && <>
                 <div className='product-detail'>
                     <Image src={productData.image} width={333} height={333} />

@@ -96,8 +96,8 @@ export const Home = () => {
                     </svg>}
 
                     Avo</h1>
-                <Link href='' className='question-link' legacyBehavior>
-                    <a>
+                <Link href='' legacyBehavior>
+                    <a className='question-link'>
                         ¿Deber&iacute;a comer un avo hoy?
                     </a>
                 </Link>
