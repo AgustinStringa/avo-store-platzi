@@ -1,9 +1,21 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-const CartItem = ({ itemInfo }) => {
+import ProductItem from "@pages/product/[id]";
+const CartItem = ({ itemInfo, setCart, cart }) => {
   const data = itemInfo[0];
+  // if (!data) return null;
   const count = itemInfo.length;
+  const removeItem = () => {
+    let newValue = [];
+    if (cart[data.id].length > 1) {
+      newValue = cart[data.id].slice(0, -1);
+    }
+    setCart({
+      ...cart,
+      [data.id]: newValue,
+    });
+  };
   return (
     <div>
       <style jsx>{`
@@ -49,7 +61,7 @@ const CartItem = ({ itemInfo }) => {
           </p>
           <p>Some more information goes here....</p>
         </div>
-        <button className="btn-remove-item">
+        <button className="btn-remove-item" onClick={removeItem}>
           <span>&#x2716;</span>
         </button>
       </div>

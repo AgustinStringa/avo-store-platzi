@@ -6,12 +6,14 @@ export default function MyApp({ Component, pageProps }) {
     const { productList,
         cart,
         setProductList,
-        setCart } = useAvoShop();
+        setCart,
+        calculateCountItems } = useAvoShop();
     return <AvoContext.Provider value={{
         productList,
         cart,
         setProductList,
-        setCart
+        setCart,
+        calculateCountItems
     }}>
         <Layout>
             <Component {...pageProps} />

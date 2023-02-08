@@ -4,12 +4,11 @@ import CartList from '@containers/Layout/CartList';
 import CartItem from '@components/CartItem';
 import EmptyCart from '@components/EmptyCart';
 const cart = () => {
-    const { cart, setCart } = useContext(AvoContext);
-
+    const { cart, setCart, calculateCountItems } = useContext(AvoContext);
     const calculateSubtotal = () => {
         let price = 0;
         Object.entries(cart)?.forEach(element => {
-            element[1].forEach((product) => {
+            element[1]?.forEach((product) => {
                 price += product.price;
             })
         });
@@ -49,8 +48,8 @@ const cart = () => {
             
             `}</style>
             <CartList>
-                {Object.keys(cart).length > 0 ?
-                    [Object.entries(cart).map((el) => <CartItem itemInfo={el[1]} />)]
+                {calculateCountItems() > 0 ?
+                    [Object.entries(cart).map((el) => <CartItem itemInfo={el[1]} setCart={setCart} cart={cart} />)]
                     :
                     <EmptyCart />}
             </CartList>
