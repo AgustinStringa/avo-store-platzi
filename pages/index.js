@@ -96,7 +96,7 @@ export const Home = () => {
                     </svg>}
 
                     Avo</h1>
-                <Link href='' legacyBehavior>
+                <Link href='/yes-or-no' legacyBehavior>
                     <a className='question-link'>
                         ¿Deber&iacute;a comer un avo hoy?
                     </a>
