@@ -59,18 +59,24 @@ const ProductItem = () => {
                 }
                 .product-detail {
                     display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                }
-                @media (min-width: 769) {
-                    .product-detail {
                     flex-direction: column;
+                    align-items: center;
+                    margin-bottom: 3rem;
+                }
+                @media (min-width: 769px) {
+                    .product-detail {
+                        flex-direction: row;
                 }
                 }
                 .product-detail > div {
-                    padding-left: 4rem;
                     align-self: baseline;
                     padding-top: 4rem;
+                    padding-bottom: 4rem;
+                }
+                @media (min-width: 768px) {
+                    .product-detail > div {
+                    padding-left: 4rem;
+                }
                 }
                 .product-name {
                     font-weight: bold;
@@ -134,14 +140,14 @@ const ProductItem = () => {
                     justify-content: center;
                     gap: 0.5rem;
                 }
+
                 .success-alert {
                     display: flex;
                     align-items: center;
                     justify-content: start;
-                    margin: 1rem 0;
                     color: #21ba45;
                     gap: .5rem;
-                    transition: all .3s ease-in-out;
+                    /* transition: all .3s ease-in-out; */
                     animation: fadeOut 3s ease-in-out forwards;
                 }
                 @keyframes fadeOut {
@@ -152,6 +158,10 @@ const ProductItem = () => {
                     100% {
                         opacity: 0;
                     }
+                }
+                .hidden {
+                    opacity: 0;
+                    display: none;
                 }
                 /**SPINNER LOADER */
                 @keyframes spin {
@@ -221,7 +231,7 @@ const ProductItem = () => {
                                 {!adding ? <span> <BsFillCartPlusFill /> Add to cart</span> : <div className='spinner'></div>}
                             </button>
                         </form>
-                        {showSuccessAdd && <p className='success-alert'> <BsCheckLg /> <span>Added To Cart</span></p>}
+                        {<p className={` ${!showSuccessAdd ? 'hidden' : 'success-alert'}`}> <BsCheckLg /> <span>Added To Cart</span></p>}
                     </div>
 
                 </div>
