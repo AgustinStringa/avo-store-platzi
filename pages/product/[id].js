@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Image from 'next/image';
 import { AvoContext } from '@context/AvoContext';
 import LoaderPage from '@components/LoaderPage';
+import { BsFillCartPlusFill } from 'react-icons/bs'
 const ProductItem = () => {
     const { cart, setCart } = useContext(AvoContext);
     const [productData, setProductData] = useState({});
@@ -122,6 +123,12 @@ const ProductItem = () => {
                 .addto-cart-button:disabled {
                     background-color: #9be0ab;
                 }
+                .addto-cart-button span {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.5rem;
+                }
 
                 /**SPINNER LOADER */
                 @keyframes spin {
@@ -188,7 +195,7 @@ const ProductItem = () => {
                             <button type="button" className='addto-cart-button'
                                 disabled={adding}
                                 onClick={addToCart}>
-                                {!adding ? 'Add to cart' : <div className='spinner'></div>}
+                                {!adding ? <span> <BsFillCartPlusFill /> Add to cart</span> : <div className='spinner'></div>}
                             </button>
                         </form>
                     </div>
