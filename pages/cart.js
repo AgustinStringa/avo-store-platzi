@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { AvoContext } from './context/AvoContext'
+import { AvoContext } from '@context/AvoContext'
 import CartList from '@containers/Layout/CartList';
 import CartItem from '@components/CartItem';
 import EmptyCart from '@components/EmptyCart';
