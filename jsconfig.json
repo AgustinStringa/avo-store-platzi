@@ -5,9 +5,6 @@
             "@components/*": [
                 "src/components/*"
             ],
-            "@context/*": [
-                "src/context/*"
-            ],
             "@containers/*": [
                 "src/containers/*"
             ],
