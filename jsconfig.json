@@ -3,22 +3,22 @@
         "baseUrl": ".",
         "paths": {
             "@components/*": [
-                "pages/components/*"
+                "src/components/*"
             ],
             "@containers/*": [
-                "pages/containers/*"
+                "src/containers/*"
             ],
             "@pages/*": [
-                "pages/*"
+                "src/*"
             ],
             "@styles/*": [
-                "pages/styles/*"
+                "src/styles/*"
             ],
             "@context/*": [
-                "pages/context/*"
+                "src/context/*"
             ],
             "@hooks/*": [
-                "pages/hooks/*"
+                "src/hooks/*"
             ],
         }
     }
