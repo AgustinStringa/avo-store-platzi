@@ -3,21 +3,31 @@ import ProductList from '@containers/Layout/ProductList';
 import { AvoContext } from '@context/AvoContext';
 import Link from 'next/link';
 
-export const Home = () => {
+export const getServerSideProps = async (context) => {
+    const response = await fetch("https://avo-store-platzi-4g9o.vercel.app/api/avo");
+    const { data } = await response.json();
 
-    const [ripAvocato, setRipAvocato] = useState(0);
-    const { productList, setProductList } = useContext(AvoContext);
-    const getProducts = async () => {
-        try {
-            const res = await fetch('api/avo/')
-            const { data } = await res.json();
-            setProductList(data);
-        } catch (error) {
-            setProductList([]);
+    return {
+        props: {
+            data: data
         }
     }
+}
+
+export const Home = ({ data }) => {
+    const [ripAvocato, setRipAvocato] = useState(0);
+    const { productList, setProductList } = useContext(AvoContext);
+    // const getProducts = async () => {
+    //     try {
+    //         const res = await fetch('api/avo/')
+    //         const { data } = await res.json();
+    //         setProductList(data);
+    //     } catch (error) {
+    //         setProductList([]);
+    //     }
+    // }
     useEffect(() => {
-        getProducts();
+        setProductList(data)
     }, [])
 
 
