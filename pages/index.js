@@ -3,7 +3,7 @@ import ProductList from '@containers/Layout/ProductList';
 import { AvoContext } from '@context/AvoContext';
 import Link from 'next/link';
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
     const response = await fetch("https://avo-store-platzi-4g9o.vercel.app/api/avo");
     const { data } = await response.json();
 
