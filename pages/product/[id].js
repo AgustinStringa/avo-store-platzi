@@ -4,9 +4,34 @@ import Image from 'next/image';
 import { AvoContext } from '@context/AvoContext';
 import LoaderPage from '@components/LoaderPage';
 import { BsFillCartPlusFill, BsCheckLg } from 'react-icons/bs'
-const ProductItem = () => {
+
+export async function getStaticPaths() {
+    const response = await fetch("https://avo-store-platzi-4g9o.vercel.app/api/avo");
+    const { data } = await response.json();
+    const mypaths = data.map(avocado => ({
+        params: {
+            id: avocado.id
+        }
+    }))
+    return {
+        paths: mypaths,
+        fallback: false, // can also be true or 'blocking'
+    }
+}
+export async function getStaticProps(context) {
+    const { params: { id } } = context;
+    const response = await fetch(`https://avo-store-platzi-4g9o.vercel.app/api/avo/${id}`);
+    const data = await response.json();
+    return {
+        props: {
+            productData: data,
+        }
+    }
+}
+
+const ProductItem = ({ productData }) => {
+
     const { cart, setCart } = useContext(AvoContext);
-    const [productData, setProductData] = useState({});
     const [adding, setAdding] = useState(false);
     const [loading, setLoading] = useState(false);
     const [showSuccessAdd, setShowSuccessAdd] = useState(false);
@@ -20,10 +45,10 @@ const ProductItem = () => {
         setLoading(false);
     }
     useEffect(() => {
-        if (params.query.id) {
-            getProductById(params.query.id);
-            return;
-        }
+        // if (params.query.id) {
+        //     getProductById(params.query.id);
+        //     return;
+        // }
     }, [params.query.id])
 
 
