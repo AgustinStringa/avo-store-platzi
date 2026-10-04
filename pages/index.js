@@ -2,10 +2,10 @@ import React, { useEffect, useState, useContext } from 'react'
 import ProductList from '@containers/Layout/ProductList';
 import { AvoContext } from '@context/AvoContext';
 import Link from 'next/link';
+import Database from '../database/db';
 
 export const getStaticProps = async (context) => {
-    const response = await fetch("https://avo-store-platzi-4g9o.vercel.app/api/avo");
-    const { data } = await response.json();
+    const data = await Database.getAll();
 
     return {
         props: {

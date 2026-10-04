@@ -4,10 +4,10 @@ import Image from 'next/image';
 import { AvoContext } from '@context/AvoContext';
 import LoaderPage from '@components/LoaderPage';
 import { BsFillCartPlusFill, BsCheckLg } from 'react-icons/bs'
+import Database from '../../database/db';
 
 export async function getStaticPaths() {
-    const response = await fetch("https://avo-store-platzi-4g9o.vercel.app/api/avo");
-    const { data } = await response.json();
+    const data = await Database.getAll();
     const mypaths = data.map(avocado => ({
         params: {
             id: avocado.id
@@ -20,8 +20,7 @@ export async function getStaticPaths() {
 }
 export async function getStaticProps(context) {
     const { params: { id } } = context;
-    const response = await fetch(`https://avo-store-platzi-4g9o.vercel.app/api/avo/${id}`);
-    const data = await response.json();
+    const data = await Database.getById(id);
     return {
         props: {
             productData: data,
