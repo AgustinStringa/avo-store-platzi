@@ -34,6 +34,7 @@ const ProductItem = ({ productData }) => {
     const [adding, setAdding] = useState(false);
     const [loading, setLoading] = useState(false);
     const [showSuccessAdd, setShowSuccessAdd] = useState(false);
+    const [quantity, setQuantity] = useState(0);
     const params = useRouter();
     const countProductRef = useRef(null);
     const getProductById = async (id) => {
@@ -52,9 +53,10 @@ const ProductItem = ({ productData }) => {
 
 
     const addToCart = () => {
+        if (quantity <= 0) return;
         setAdding(true);
         const newElements = [];
-        for (let i = 0; i < countProductRef.current.value; i++) {
+        for (let i = 0; i < quantity; i++) {
             newElements.push(productData);
         }
         let newContent = [];
@@ -151,12 +153,14 @@ const ProductItem = ({ productData }) => {
                     border-bottom-right-radius: .5rem;
                     font-weight: bold;
                     width: 150px;
+                    cursor: pointer;
                 }
                 .addto-cart-button:hover {
                     background-color: var(--color-primary-hover);
                 }
                 .addto-cart-button:disabled {
                     background-color: var(--color-primary-disabled);
+                    cursor: not-allowed;
                 }
                 .addto-cart-button span {
                     display: flex;
@@ -242,16 +246,25 @@ const ProductItem = ({ productData }) => {
             {loading && <LoaderPage />}
             {Object.keys(productData).length > 0 && <>
                 <div className='product-detail'>
-                    <Image src={productData.image} width={333} height={333} />
+                    <Image src={productData.image} alt={productData.name} width={333} height={333} />
                     <div>
                         <h1 className='product-name'>{productData.name}</h1>
                         <p className='product-price'>{productData.price}</p>
                         <p className='product-sku'>SKU: {productData.sku}</p>
                         <form className='form-cart'>
-                            <input type="number" min={0} defaultValue={0} ref={countProductRef} />
-                            <button type="button" className='addto-cart-button'
-                                disabled={adding}
-                                onClick={addToCart}>
+                            <input
+                                type="number"
+                                min={0}
+                                value={quantity}
+                                onChange={(e) => setQuantity(Number(e.target.value))}
+                                ref={countProductRef}
+                            />
+                            <button
+                                type="button"
+                                className='addto-cart-button'
+                                disabled={adding || quantity <= 0}
+                                onClick={addToCart}
+                            >
                                 {!adding ? <span> <BsFillCartPlusFill /> Add to cart</span> : <div className='spinner'></div>}
                             </button>
                         </form>

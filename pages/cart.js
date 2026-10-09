@@ -45,18 +45,23 @@ const cart = () => {
                 background-color: #27292a;
                 text-shadow: none;
             }
+            .subtotal button:disabled {
+                background-color: var(--color-border);
+                cursor: not-allowed;
+                opacity: 0.6;
+            }
             
             `}</style>
             <CartList>
                 {calculateCountItems() > 0 ?
-                    [Object.entries(cart).map((el) => <CartItem itemInfo={el[1]} setCart={setCart} cart={cart} />)]
+                    Object.entries(cart).map((el) => <CartItem key={el[0]} itemInfo={el[1]} setCart={setCart} cart={cart} />)
                     :
                     <EmptyCart />}
             </CartList>
             <hr />
             <div className='subtotal'>
                 <p><span>Sub total: </span> ${calculateSubtotal()}</p>
-                <button>checkout</button>
+                <button disabled={calculateCountItems() <= 0}>checkout</button>
             </div>
         </>
     )

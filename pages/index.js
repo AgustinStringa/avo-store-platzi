@@ -108,7 +108,7 @@ export const Home = ({ data }) => {
                     Avo</h1>
                 <Link href='/yes-or-no' legacyBehavior>
                     <a className='question-link'>
-                        ¿Deber&iacute;a comer un avo hoy?
+                        Should I eat an avo today?
                     </a>
                 </Link>
 

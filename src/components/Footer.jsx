@@ -92,25 +92,25 @@ const Footer = () => {
           <nav>
             <ul>
               <li>
-                <h2>Nosotros</h2>
+                <h2>About</h2>
 
                 <Link href="/about" legacyBehavior>
-                  <a>Conoce más</a>
+                  <a>Learn more</a>
                 </Link>
               </li>
               <li>
-                <h2>Servicios</h2>
+                <h2>Services</h2>
                 <Link legacyBehavior href="/">
-                  <a>Todos los productos</a>
+                  <a>All products</a>
                 </Link>
               </li>
               <li className="made-for">
-                <h2>Hecho para</h2>
+                <h2>Made for</h2>
                 <p>
                   <a href="https://platzi.com/" target="_blank">
-                    Curso de Nextjs de Platzi
+                    Platzi's Next.js Course
                   </a>
-                  <span> dictado por </span>
+                  <span> taught by </span>
                   <a href="https://twitter.com/jonalvarezz" target="_blank">
                     @jonalvarezz
                   </a>
