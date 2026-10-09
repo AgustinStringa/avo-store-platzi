@@ -19,7 +19,7 @@ const EmptyCart = () => {
         `}</style>
             <div className='alert-empty-cart'>
                 <p className='alert-empty-cart__title'>Your cart is empty</p>
-                <p className='alert-empty-cart__text'>You will need to add some items to the cart before you can checkout.</p>
+                <p className='alert-empty-cart__text'>You need to add some items to the cart before you can checkout.</p>
             </div>
 
         </>
