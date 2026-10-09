@@ -114,7 +114,7 @@ const ProductItem = ({ productData }) => {
                 .product-sku {
                     padding: .7rem .5rem;
                     font-size: .7rem;
-                    background-color: #e8e8e8;
+                    background-color: var(--color-gray-light);
                     color: rgba(0,0,0,.6);
                     display: inline-block;
                     border-radius: .4rem;
@@ -131,7 +131,7 @@ const ProductItem = ({ productData }) => {
                     padding: .5rem .5rem .5rem .8rem;
                     border-top-left-radius: .5rem;
                     border-bottom-left-radius: .5rem;
-                    border: 1px solid #c1c1c1;
+                    border: 1px solid var(--color-border);
                     transition: all .2s ease-in-out;
                 }
                 .form-cart input:active,
@@ -144,19 +144,19 @@ const ProductItem = ({ productData }) => {
                     transition: all .2s ease-in-out;
                     padding: .8rem 1rem;
                     color: #fff;
-                    background-color: #21ba45;
+                    background-color: var(--color-primary);
                     outline: none;
-                    border: 1px solid #c1c1c1;
+                    border: 1px solid var(--color-border);
                     border-top-right-radius: .5rem;
                     border-bottom-right-radius: .5rem;
                     font-weight: bold;
                     width: 150px;
                 }
                 .addto-cart-button:hover {
-                    background-color: #16ab39;
+                    background-color: var(--color-primary-hover);
                 }
                 .addto-cart-button:disabled {
-                    background-color: #9be0ab;
+                    background-color: var(--color-primary-disabled);
                 }
                 .addto-cart-button span {
                     display: flex;
@@ -169,7 +169,7 @@ const ProductItem = ({ productData }) => {
                     display: flex;
                     align-items: center;
                     justify-content: start;
-                    color: #21ba45;
+                    color: var(--color-primary);
                     gap: .5rem;
                     /* transition: all .3s ease-in-out; */
                     animation: fadeOut 3s ease-in-out forwards;
@@ -220,7 +220,7 @@ const ProductItem = ({ productData }) => {
                 }
                 .divider {
                     border: none;
-                    border-top: .5px solid #c1c1c1;
+                    border-top: .5px solid var(--color-border);
                 }
                 .table-attributes  {
                     border-collapse: collapse;

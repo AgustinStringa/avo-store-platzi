@@ -1,5 +1,32 @@
 :root {
   --color-link: #4183c4;
+
+  /* Primary / green action colors */
+  --color-primary: #21ba45;
+  --color-primary-hover: #16ab39;
+  --color-primary-disabled: #9be0ab;
+  --color-green: #21ba45;
+  --color-green-hover: #16ab39;
+  --color-green-disabled: #9be0ab;
+
+  /* Neutral and border colors */
+  --color-border: #c1c1c1;
+  --color-gray-light: #e8e8e8;
+
+  /* Avocado illustration colors */
+  --color-avo-leaf: #8ee2cf;
+  --color-avo-leaf-detail: #6fce91;
+  --color-avo-seed-light: #e1b89a;
+  --color-avo-seed-dark: #d2996f;
+  --color-avo-skin-light: #4e5660;
+  --color-avo-skin-dark: #383c43;
+  --color-avo-pulp-light: #89d47f;
+  --color-avo-pulp-dark: #5ec783;
+
+  /* Cart illustration colors */
+  --color-cart-yellow: #fad97e;
+  --color-cart-brown: #a16b4e;
+  --color-cart-pink: #f15b70;
 }
 
 /*

@@ -29,7 +29,7 @@ const CartItem = ({ itemInfo, setCart, cart }) => {
           font-size: 1.3rem;
         }
         .btn-remove-item {
-          border: 1px solid #e8e8e8;
+          border: 1px solid var(--color-gray-light);
           cursor: pointer;
           padding: 1rem;
           background: transparent;

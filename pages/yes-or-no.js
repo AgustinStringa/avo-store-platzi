@@ -38,7 +38,7 @@ const YesOrNo = () => {
         <>
             <style jsx>{`
                 .response {
-                    color: #21ba45;
+                    color: var(--color-primary);
                     font-size: 10rem;
                     text-align: center;
                 }
@@ -49,9 +49,9 @@ const YesOrNo = () => {
                     transition: all .2s ease-in-out;
                     padding: .5rem 1rem;
                     color: #fff;
-                    background-color: #21ba45;
+                    background-color: var(--color-primary);
                     outline: none;
-                    border: 1px solid #c1c1c1;
+                    border: 1px solid var(--color-border);
                     border-radius: .5rem;
                     font-weight: bold;
                     width: 150px;
@@ -60,10 +60,10 @@ const YesOrNo = () => {
 
                 }
                 .try-again-button:hover {
-                    background-color: #16ab39;
+                    background-color: var(--color-primary-hover);
                 }
                 .try-again-button:disabled {
-                    background-color: #9be0ab;
+                    background-color: var(--color-primary-disabled);
                 }
                 .back-button {
                     border: 1px solid rgba(0,0,0,.87);

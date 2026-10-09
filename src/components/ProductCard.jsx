@@ -7,7 +7,7 @@ const ProductCard = ({ productData }) => {
             <a className='product-card'>
                 <style jsx>{`
             .product-card {
-                border: 1px solid #c1c1c1;
+                border: 1px solid var(--color-border);
                 border-radius: 1rem;
                 padding: 1rem;
                 text-align: left;
